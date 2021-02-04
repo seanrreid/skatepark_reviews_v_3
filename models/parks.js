@@ -27,15 +27,6 @@ class Parks {
         }
     }
 
-    async getParkReviews() {
-        try {
-            const query = `SELECT * FROM reviews WHERE park_id = ${this.id}`;
-            const response = await db.any(query);
-            return response;
-        } catch (err) {
-            return err.message;
-        }
-    }
 }
 
 module.exports = Parks;

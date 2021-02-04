@@ -24,8 +24,10 @@ SERVER.listen(PORT, HOSTNAME, () => {
 
 const rootController = require('./routes/index'),
     parksController = require('./routes/parks'),
+    reviewsController = require('./routes/reviews'),
     usersController = require('./routes/users');
 
 app.use('/', rootController);
 app.use('/parks', parksController);
+app.use('/reviews', reviewsController);
 app.use('/user', usersController);
