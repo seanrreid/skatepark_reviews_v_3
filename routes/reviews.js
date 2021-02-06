@@ -4,6 +4,7 @@ const express = require('express'),
 
 router.post('/add', async (req, res) => {
     const { park_id, review_content, score } = req.body;
+    console.log("ADDING A REVIEW", req.body);
     const Review = new ReviewsModel(null, park_id, review_content, score);
     const response = await Review.addReview();
     if (response.rowCount >= 1) {

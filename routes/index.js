@@ -4,12 +4,12 @@ const express = require('express'),
 
 /* GET home page. */
 router.get('/', async (req, res, next) => {
-    const parkList = await ParksModel.getAll();
+    const parkData = await ParksModel.getAll();
 
     res.render('template', {
         locals: {
             title: 'Time to shred bruh!',
-            parkData: parkList,
+            parkData
         },
         partials: {
             body: 'partials/home',
