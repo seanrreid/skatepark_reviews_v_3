@@ -30,4 +30,4 @@ const rootController = require('./routes/index'),
 app.use('/', rootController);
 app.use('/parks', parksController);
 app.use('/reviews', reviewsController);
-app.use('/user', usersController);
+app.use('/users', usersController);

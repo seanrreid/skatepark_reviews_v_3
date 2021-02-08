@@ -1,5 +1,5 @@
-INSERT INTO users (first_name, last_name, email)
-    VALUES ('Sean', 'Reid', 'sean@digitalcrafts.com');
+INSERT INTO users (first_name, last_name, email, password)
+    VALUES ('Sean', 'Reid', 'fake@fake.com', null);
 
 INSERT INTO parks (name, address, street, city, state, picture)
     VALUES ('SPOA', '4440 Lexington Rd, Athens, GA 30605', '4440 Lexington Rd', 'Athens', 'Georgia', '/images/skatepark.jpg');
