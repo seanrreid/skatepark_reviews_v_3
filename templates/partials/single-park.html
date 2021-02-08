@@ -27,6 +27,7 @@
     <form class="form clearfix" action="/reviews/add" method="POST">
         <p>Add a new review:</p>
         <input type="hidden" value="${parkData.id}" name="park_id"/>
+        <input type="hidden" value="${user_id}" name="user_id" />
         <div class="field">
             <div class="control">
                 <textarea class="textarea is-primary" placeholder="Leave a review" rows="4" cols="50" name="review_content" required></textarea>

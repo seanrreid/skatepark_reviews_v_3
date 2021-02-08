@@ -10,8 +10,13 @@
     <nav class="navbar main-nav  is-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-start">
             <a class="navbar-item" href='/'>Home</a>
-            <a class="navbar-item" href='/users/signup'>Register</a>
-            <a class="navbar-item" href='/users/login'>Login</a>
+            ${!!is_logged_in ? `
+                <a class="navbar-item" href='/users/logout'>Logout</a>
+                ` : `
+                <a class="navbar-item" href='/users/signup'>Register</a>
+                <a class="navbar-item" href='/users/login'>Login</a>
+                `
+            }
         </div>
     </nav>
     <h1 class="container">${title}</h1>

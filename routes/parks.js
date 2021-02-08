@@ -11,6 +11,7 @@ router.get('/', async (req, res, next) => {
         locals: {
             title: 'List of Parks',
             parkData: parkData,
+            is_logged_in: req.session.is_logged_in
         },
         partials: {
             body: 'home',
@@ -34,7 +35,9 @@ router.get('/:park_id?', async (req, res, next) => {
             title: parkData.name,
             parkData,
             reviewData,
-            dummyReviews
+            dummyReviews,
+            is_logged_in: req.session.is_logged_in,
+            user_id: req.session.user_id
         },
         partials: {
             body: 'partials/single-park',
