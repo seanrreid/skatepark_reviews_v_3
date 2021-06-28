@@ -1,11 +1,12 @@
 const db = require('./conn.js');
 
 class Reviews {
-    constructor(id, park_id, review_content, score) {
+    constructor(id, park_id, review_content, score, user_id) {
         this.id = id;
         this.park_id = park_id;
         this.review_content = review_content;
         this.score = score;
+        this.user_id = user_id;
     }
 
     async getParkReviews() {

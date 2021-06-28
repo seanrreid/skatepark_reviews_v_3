@@ -1,7 +1,6 @@
-const host = 'ziggy.db.elephantsql.com',
-    database = 'alnloyac',
-    user = 'alnloyac',
-    password = 'jhAiMSnMfwriUO20m0VPnP6kctla3-dU';
+require('dotenv').config();
+const host = process.env.DB_HOST;
+const database = process.env.DB_NAME;
 
 const pgp = require('pg-promise')({
     query: function (event) {
@@ -12,8 +11,6 @@ const pgp = require('pg-promise')({
 const options = {
     host,
     database,
-    user,
-    password
 };
 
 const db = pgp(options);
