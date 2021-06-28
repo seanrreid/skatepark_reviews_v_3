@@ -2,62 +2,76 @@
     <div class="clearfix">
         <p>${parkData.address}</p>
         <figure class="image">
-            <img src="${parkData.picture}"/>
+            <img src="${parkData.picture}" />
         </figure>
     </div>
     <div class="clearfix">
-        <ul style="margin-top: 16px;" class="reviews">
+        <ul style="margin-top: 16px" class="reviews">
             ${reviewData.map(review => `
-                <li>
-                    <span class="score" style="display: inline-block; width: 100%;">${review.score} Stars</span>
-                    <p>${review.content}</p>
-                </li>
+            <li>
+                <span class="score" style="display: inline-block; width: 100%"
+                    >${review.score} Stars</span
+                >
+                <p>${review.content}</p>
+            </li>
             `).join('')}
         </ul>
-        <hr/>
+        <hr />
         <h3>External Reviews</h3>
-         <ul style="margin-top: 16px;" class="reviews reviews__dummy-review">
+        <ul style="margin-top: 16px" class="reviews reviews__dummy-review">
             ${dummyReviews.map(dummyReview => `
-                <li>
-                    <p>${dummyReview.first_name} ${dummyReview.last_name}</p>
-                    <p>${dummyReview.review}</p>
-                </li>
+            <li>
+                <p>${dummyReview.first_name} ${dummyReview.last_name}</p>
+                <p>${dummyReview.review}</p>
+            </li>
             `).join('')}
         </ul>
+    </div>
+    ${!!is_logged_in ? `
     <form class="form clearfix" action="/reviews/add" method="POST">
         <p>Add a new review:</p>
-        <input type="hidden" value="${parkData.id}" name="park_id"/>
+        <input type="hidden" value="${parkData.id}" name="park_id" />
         <input type="hidden" value="${user_id}" name="user_id" />
         <div class="field">
             <div class="control">
-                <textarea class="textarea is-primary" placeholder="Leave a review" rows="4" cols="50" name="review_content" required></textarea>
+                <textarea
+                    class="textarea is-primary"
+                    placeholder="Leave a review"
+                    rows="4"
+                    cols="50"
+                    name="review_content"
+                    required
+                ></textarea>
             </div>
         </div>
         <div class="field">
             <div class="control">
-                <span style="display:inline-block; margin-right: 16px;">Rating:</span>
+                <span style="display: inline-block; margin-right: 16px"
+                    >Rating:</span
+                >
                 <label>
-                    <input type="radio" value=1 name="score" required/>
+                    <input type="radio" value="1" name="score" required />
                     1 Star
                 </label>
                 <label>
-                    <input type="radio" value=2 name="score"/>
+                    <input type="radio" value="2" name="score" />
                     2 Stars
                 </label>
                 <label>
-                    <input type="radio" value=3 name="score"/>
+                    <input type="radio" value="3" name="score" />
                     3 Stars
                 </label>
                 <label>
-                    <input type="radio" value=4 name="score"/>
+                    <input type="radio" value="4" name="score" />
                     4 Stars
                 </label>
                 <label>
-                    <input type="radio" value=5 name="score"/>
+                    <input type="radio" value="5" name="score" />
                     5 Stars
                 </label>
             </div>
         </div>
         <button class="button is-primary" type="submit">Submit Review</button>
     </form>
+    ` : ``}
 </section>
