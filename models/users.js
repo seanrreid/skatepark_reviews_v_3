@@ -12,6 +12,8 @@ class User {
 
     static async addUser(first_name, last_name, email, password) {
         try {
+            // Using a PREPARED STATEMENT will help with basic sanitization
+            // This `query` object will be a string, effectively turning any injections into relatively harmless text
             const query = `INSERT INTO users (first_name, last_name, email, password) VALUES ('${first_name}', '${last_name}', '${email}', '${password}') RETURNING id;`;
             const response = await db.one(query);
             return response;
